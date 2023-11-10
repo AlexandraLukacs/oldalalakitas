@@ -1,0 +1,135 @@
+* { /* Minden html elemre érvényes */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* width értékbe a padding és a border is beletartozik */
+}
+
+header, nav, article, aside, footer {
+    border: 1px solid white;
+    padding: 10px;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    list-style-type: none;
+}
+
+li { 
+    background-color: rgb(13, 95, 81);
+    padding: 2px;
+    text-align: center;
+}
+
+h1 {
+    color: rgb(21, 109, 136);
+}
+
+article img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: pink;
+}
+
+article {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    border: 1px solid white;
+}
+
+div {
+    border: 1px solid white;
+    padding: 5px;
+}
+
+body {
+    background-color: rgb(46, 179, 139);
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+}
+
+main {
+    /* szülőelem, ő tartalmazza a többit, amit el akarik rendezni a rácson */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "h h h h h"
+    "n n n n n"
+    "b a a a j"
+    "f f f f f";
+}
+
+header {
+    grid-area: h;
+}
+
+nav {
+    grid-area: n;
+}
+
+article {
+    grid-area: a;
+}
+
+footer {
+    grid-area: f;
+}
+
+aside#bal {
+    grid-area: b;
+}
+
+aside#jobb {
+    grid-area: j;
+}
+
+/* töréspont media Query-vel */
+/* TABLET */
+@media screen and (max-width: 700px) {
+    body {
+      width: 100%;
+      font-size: 2vw;
+    }
+    main{
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px auto auto 50px;
+        grid-template-areas: 
+        "h"
+        "n"
+        "a"
+        "j"
+        "b"
+        "f";
+    }
+    article {
+        grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* TELEFON */
+  @media screen and (max-width: 450px) {
+    body {
+        width: 100%;
+        font-size: 5vw;
+      }
+    main{
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px auto auto 50px;
+        grid-template-areas: 
+        "h"
+        "n"
+        "a"
+        "j"
+        "b"
+        "f";
+    }
+    article {
+        grid-template-columns: 1fr;
+    }
+  }
